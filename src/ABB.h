@@ -36,7 +36,7 @@ public:
 
 	// Agrega un nuevo nodo al ABB actual. Si el ABB esta_vacio
 	// el nodo insertado será la raíz.
-	void insertar(K clave, T data);
+	bool insertar(K clave, T data);
 
 	// Imprime la informacion guardada en el ABB.
 	// Ordenada de menor a mayor
@@ -72,7 +72,7 @@ public:
 
 	// Borra todos los nodos del ABB.
 	void borrar_todo();
-	
+
 	~ABB<K, T>();
 
 };
@@ -100,8 +100,9 @@ NodoABB<K, T>* ABB<K, T>::insertar(NodoABB<K, T> *nodo, K clave, T data) {
 }
 
 template<class K, class T>
-void ABB<K, T>::insertar(K clave, T data) {
+bool ABB<K, T>::insertar(K clave, T data) {
 	this->raiz = insertar(this->raiz, clave, data);
+	return this->raiz != NULL;
 }
 
 template<class K, class T>
@@ -139,7 +140,7 @@ bool ABB<K, T>::buscar(K clave) {
 template<class K, class T>
 T ABB<K, T>::get_dato(K clave) {
 	NodoABB<K, T> *nodo = buscar(this->raiz, clave);
-	if(!nodo)
+	if (!nodo)
 		return NULL;
 	return nodo->data;
 }

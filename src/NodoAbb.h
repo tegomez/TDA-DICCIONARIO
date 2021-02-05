@@ -38,7 +38,7 @@ public:
 
 template<class K, class T>
 NodoABB<K, T>::NodoABB(K clave, T data) {
-    this->clave = clave;
+	this->clave = clave;
 	this->data = data;
 	this->izquierdo = NULL;
 	this->derecho = NULL;
